@@ -101,7 +101,7 @@ class Patcher(object):
         release = self.fetch_release_number()
         self.version_main = release.version[0]
         self.version_full = release
-        self.unzip_package(self.fetch_package())
+        #self.unzip_package(self.fetch_package())
         # i.patch()
         return self.patch()
 
