@@ -193,7 +193,7 @@ class Patcher(object):
         :return: False if not patched, else True
         """
         executable_path = executable_path or self.executable_path
-        with io.open(executable_path, "rb") as fh:
+        with io.open('/execute/chromedriver', "rb") as fh:
             for line in iter(lambda: fh.readline(), b""):
                 if b"cdc_" in line:
                     return False
