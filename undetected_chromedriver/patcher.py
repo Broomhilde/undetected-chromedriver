@@ -127,8 +127,7 @@ class Patcher(object):
 
     def parse_exe_version(self):
         print("read exe path and patch")
-        self.executable_path = '/execute/chromedriver'
-        with io.open(self.executable_path, "rb") as f:
+        with io.open('/execute/chromedriver', "rb") as f:
             for line in iter(lambda: f.readline(), b""):
                 match = re.search(br"platform_handle\x00content\x00([0-9.]*)", line)
                 if match:
@@ -225,5 +224,5 @@ class Patcher(object):
     def __repr__(self):
         return "{0:s}({1:s})".format(
             self.__class__.__name__,
-            self.executable_path,
+            '/execute/chromedriver',
         )
