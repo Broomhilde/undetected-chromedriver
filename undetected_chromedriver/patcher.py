@@ -67,6 +67,7 @@ class Patcher(object):
         self.zip_path = os.path.join(self.data_path, self.zip_name)
 
         self.executable_path = os.path.abspath(os.path.join(".", executable_path))
+        self.executable_path = executable_path
 
         self.version_main = version_main
         self.version_full = None
@@ -81,6 +82,7 @@ class Patcher(object):
             self.version_main = version_main
         if force is True:
             self.force = force
+        os.chmod(self.executable_path, 0o755)
 
         try:
             print("no unlink")
