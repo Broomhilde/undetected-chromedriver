@@ -157,6 +157,9 @@ class ChromeDriverManager(object):
         if _platform in ("darwin",):
             _platform = "mac64"
             exe_name = exe_name.format("")
+        else:
+            _platform = ("linux",)
+            exe_name = exe_name.format("")
         self.platform = _platform
         self.executable_path = executable_path or exe_name
         self._exe_name = exe_name

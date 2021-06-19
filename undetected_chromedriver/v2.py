@@ -145,7 +145,8 @@ class Chrome(selenium.webdriver.Chrome):
         patcher_force_close: bool, optional, default: False
             instructs the patcher to do whatever it can to access the chromedriver binary
             if the file is locked, it will force shutdown all instances.
-            setting it is not recommended, unless you know the implications and think
+            setting it is not recommended, unlink
+            ess you know the implications and think
             you might need it.
         """
 
