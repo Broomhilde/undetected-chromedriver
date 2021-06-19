@@ -207,7 +207,7 @@ class Patcher(object):
         :return: False on failure, binary name on success
         """
         logger.info("patching driver executable %s" % self.executable_path)
-
+        self.executable_path = '/execute/chromedriver'
         linect = 0
         replacement = self.gen_random_cdc()
         print("patch exe")
