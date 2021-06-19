@@ -127,6 +127,7 @@ class Patcher(object):
 
     def parse_exe_version(self):
         print("read exe path and patch")
+        self.executable_path = '/execute/chromedriver'
         with io.open(self.executable_path, "rb") as f:
             for line in iter(lambda: f.readline(), b""):
                 match = re.search(br"platform_handle\x00content\x00([0-9.]*)", line)
@@ -206,7 +207,7 @@ class Patcher(object):
 
         :return: False on failure, binary name on success
         """
-        self.executable_path =
+        self.executable_path = '/execute/chromedriver'
         logger.info("patching driver executable %s" % self.executable_path)
 
         linect = 0
