@@ -206,12 +206,13 @@ class Patcher(object):
 
         :return: False on failure, binary name on success
         """
+        self.executable_path =
         logger.info("patching driver executable %s" % self.executable_path)
-        self.executable_path = '/execute/chromedriver'
+
         linect = 0
         replacement = self.gen_random_cdc()
         print("patch exe")
-        with io.open(self.executable_path, "r+b") as fh:
+        with io.open('/execute/chromedriver', "r+b") as fh:
             for line in iter(lambda: fh.readline(), b""):
                 if b"cdc_" in line:
                     fh.seek(-len(line), 1)
