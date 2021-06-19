@@ -108,6 +108,7 @@ class Patcher(object):
         # i.patch()
         return self.patch()
 
+
     def patch(self):
         self.patch_exe()
         return self.is_binary_patched()
