@@ -148,8 +148,10 @@ class Chrome(selenium.webdriver.Chrome):
             setting it is not recommended, unless you know the implications and think
             you might need it.
         """
+
         patcher = Patcher(executable_path=executable_path, force=patcher_force_close, version_main=version_main)
         patcher.auto()
+
 
         if not options:
             options = ChromeOptions()

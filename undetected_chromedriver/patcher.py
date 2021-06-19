@@ -83,7 +83,8 @@ class Patcher(object):
             self.force = force
 
         try:
-            os.unlink(self.executable_path)
+            print("no unlink")
+            #os.unlink(self.executable_path)
         except PermissionError:
             if self.force:
                 self.force_kill_instances(self.executable_path)
@@ -123,6 +124,7 @@ class Patcher(object):
         return LooseVersion(urlopen(self.url_repo + path).read().decode())
 
     def parse_exe_version(self):
+        print("read exe path and patch")
         with io.open(self.executable_path, "rb") as f:
             for line in iter(lambda: f.readline(), b""):
                 match = re.search(br"platform_handle\x00content\x00([0-9.]*)", line)
@@ -206,6 +208,7 @@ class Patcher(object):
 
         linect = 0
         replacement = self.gen_random_cdc()
+        print("patch exe")
         with io.open(self.executable_path, "r+b") as fh:
             for line in iter(lambda: fh.readline(), b""):
                 if b"cdc_" in line:
